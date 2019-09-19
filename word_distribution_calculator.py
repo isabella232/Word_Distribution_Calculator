@@ -1,6 +1,6 @@
 def calc_distribution(text, word):
     ''' Calculates the percentage of how many times word appears in text
-        Percentage = number of times word appears / total amount of words
+        Percentage = number of times word appears / total amount of words * 100
 
         Input: "cat cat cat dog", "dog"
         Output: 25 (Since it is 25%)
@@ -11,9 +11,11 @@ def calc_distribution(text, word):
     textData = word_counter(text)
     word_frequencies = textData[0]
     totalWords = textData[1]
-    
+
+    # check if word appears at all
     if word not in word_frequencies:
         return 0
+    
     return word_frequencies[word] / totalWords * 100
 
 def stringToWords(text):
@@ -85,4 +87,4 @@ def main():
     distr = calc_distribution(text, word)
 
     # print result
-    print(word + " represents " + str(distr) + "%" + " of all the words in  " + text)
+    print(word + " makes up " + str(distr) + "%" + " of the words in " + text)
